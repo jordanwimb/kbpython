@@ -1,3 +1,3 @@
 # kbpython
 
-Built for coursework. 
+Built for Python coursework. 
