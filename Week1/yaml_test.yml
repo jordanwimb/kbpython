@@ -1,0 +1,6 @@
+- jordan
+- wimberley
+- model: '9010'
+  router: ASR9K
+  software: XR 4.3.4
+- switchz
