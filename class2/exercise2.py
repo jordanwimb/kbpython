@@ -19,7 +19,7 @@ def getIpInterfaces(host,user,password):
     remote_conn.write(b"show ip int brief" + b"\n")
     time.sleep(2)
     output = remote_conn.read_very_eager()
-    remote_conn.write(b"exit" + b"\b")
+    remote_conn.close()
     print(output.decode() + "\n")
 
 getIpInterfaces(host,username,password)
