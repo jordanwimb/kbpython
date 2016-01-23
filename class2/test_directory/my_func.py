@@ -4,7 +4,7 @@ a = 2000
 
 
 def testFunc():
-	print ("Hello there!")
+	print ("Hello there! I'm in test directory.")
 
 
 if __name__ == '__main__':
