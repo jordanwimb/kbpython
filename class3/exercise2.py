@@ -27,7 +27,7 @@ def main():
     pynet_rtr1 = (rtr_ip, 7961)
     router = pynet_rtr1
 
-    get_intf_stats(router,snmp_user)
+    fa4_in_octets,fa4_out_octets,fa4_in_packets,fa4_out_packets = get_intf_stats(router,snmp_user)
     fa4_in_bytes = get_count_values(fa4_in_octets)
     fa4_out_bytes = get_count_values(fa4_out_octets)
     fa4_in_packets = get_count_values(fa4_in_packets)
@@ -50,7 +50,7 @@ def get_intf_stats(device,user):
         fa4_out_count = int(snmp_extract(snmp_get_oid_v3(device,user,oid=output_ucast)))
         fa4_out_packets.append(fa4_out_count)
         count +=1
-        time.sleep(300)
+        time.sleep(5)
     print("Done.  Generating graph.")
     return(fa4_in_octets,fa4_out_octets,fa4_in_packets,fa4_out_packets)
 
