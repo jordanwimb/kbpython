@@ -1,0 +1,2 @@
+Exercise 1:  complete.
+Exercise 2:  I believe it is complete based on testing in the Python IDE.  However, due to the power outage, I cannot give the program a final test run. 
