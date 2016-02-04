@@ -27,7 +27,7 @@ def main():
     pynet_rtr1 = (rtr_ip, 7961)
     router = pynet_rtr1
 
-    get_intf_stats(router)
+    get_intf_stats(router,snmp_user)
     fa4_in_bytes = get_count_values(fa4_in_octets)
     fa4_out_bytes = get_count_values(fa4_out_octets)
     fa4_in_packets = get_count_values(fa4_in_packets)
@@ -36,18 +36,18 @@ def main():
     gen_graph(fa4_in_packets,fa4_out_packets,"packets-graph")
 
 
-def get_intf_stats(device):
+def get_intf_stats(device,user):
     count = 0
     global fa4_in_octets,fa4_out_octets,fa4_in_packets,fa4_out_packets
     print("Gathering statistics.  Check back in 1 hour.")
     while count <= 12:
-        fa4_in_oct_count = int(snmp_extract(snmp_get_oid_v3(device,snmp_user,oid=input_oct)))
+        fa4_in_oct_count = int(snmp_extract(snmp_get_oid_v3(device,user,oid=input_oct)))
         fa4_in_octets.append(fa4_in_oct_count)
-        fa4_out_oct_count = int(snmp_extract(snmp_get_oid_v3(device,snmp_user,oid=output_oct)))
+        fa4_out_oct_count = int(snmp_extract(snmp_get_oid_v3(device,user,oid=output_oct)))
         fa4_out_octets.append(fa4_out_oct_count)
-        fa4_in_count = int(snmp_extract(snmp_get_oid_v3(device,snmp_user,oid=input_ucast)))
+        fa4_in_count = int(snmp_extract(snmp_get_oid_v3(device,user,oid=input_ucast)))
         fa4_in_packets.append(fa4_in_count)
-        fa4_out_count = int(snmp_extract(snmp_get_oid_v3(device,snmp_user,oid=output_ucast)))
+        fa4_out_count = int(snmp_extract(snmp_get_oid_v3(device,user,oid=output_ucast)))
         fa4_out_packets.append(fa4_out_count)
         count +=1
         time.sleep(300)
