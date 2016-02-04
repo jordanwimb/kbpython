@@ -50,7 +50,7 @@ def get_intf_stats(device,user):
         fa4_out_count = int(snmp_extract(snmp_get_oid_v3(device,user,oid=output_ucast)))
         fa4_out_packets.append(fa4_out_count)
         count +=1
-        time.sleep(10)
+        time.sleep(300)
     print("Done.  Generating graph.")
     return(fa4_in_octets,fa4_out_octets,fa4_in_packets,fa4_out_packets)
 
