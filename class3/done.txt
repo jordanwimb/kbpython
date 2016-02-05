@@ -1,2 +1,2 @@
 Exercise 1:  complete.
-Exercise 2:  complete. 
+Exercise 2:  complete.  Graphs in folder were generated with 30 second samples as a proof of concept. 
