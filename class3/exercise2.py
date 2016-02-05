@@ -32,8 +32,8 @@ def main():
     fa4_out_bytes = get_count_values(fa4_out_octets)
     fa4_in_packets = get_count_values(fa4_in_packets)
     fa4_out_packets = get_count_values(fa4_out_packets)
-    gen_graph(fa4_in_bytes,fa4_out_bytes,"bytes-graph")
-    gen_graph(fa4_in_packets,fa4_out_packets,"packets-graph")
+    gen_graph(fa4_in_bytes,fa4_out_bytes,"bytes-graph","bytes")
+    gen_graph(fa4_in_packets,fa4_out_packets,"packets-graph","packets")
 
 
 def get_intf_stats(device,user):
@@ -66,12 +66,12 @@ def get_count_values(value_list):
     return(newlist)
 
 
-def gen_graph(input_stats,output_stats,filename):
+def gen_graph(input_stats,output_stats,filename,units):
     line_chart = pygal.Line()
-    line_chart.title = 'Input/Output Packets and Bytes'
+    line_chart.title = 'Input/Output ' + units
     line_chart.x_labels = ['5', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55', '60']
-    line_chart.add('InPackets', input_stats)
-    line_chart.add('OutPackets', output_stats)
+    line_chart.add('In ' + units, input_stats)
+    line_chart.add('Out ' + units, output_stats)
     line_chart.render_to_file(filename + '.svg')
     print("Graphing complete.")
 
