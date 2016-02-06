@@ -11,9 +11,10 @@ def get_version(remote_conn):
     remote_conn.send("terminal length 0\n")
     time.sleep(1)
     remote_conn.send("show version\n")
-    time.sleep(3)
+    time.sleep(2)
+    output = remote_conn.recv(1000)
     if remote_conn.recv_ready():
-        output += remote_conn.recv(1000)
+        output += remote_conn.recv(65535)
     print(output)
 
 def main():
@@ -22,11 +23,15 @@ def main():
     user = 'pyclass'
     password = getpass.getpass()
     port = 8022    
-    remote_conn_pre.connect(ip,username=user,password=password,look_for_keys=False,allow_agent=False,port=port)
+    remote_conn_pre.connect(ip_address,username=user,password=password,look_for_keys=False,allow_agent=False,port=port)
     remote_conn = remote_conn_pre.invoke_shell()
 
     #Collect running config
     get_version(remote_conn)
 
+<<<<<<< HEAD
 if __name__ == "__main__":
+=======
+if __name__ == '__main__':
+>>>>>>> 32cef9039bb1e4c91db909a3867a5a076abc3af4
     main()
