@@ -17,12 +17,11 @@ def send_command(remote_conn,commands):
     for command in commands:
         remote_conn.send(command)
         time.sleep(1)
-        output = remote_conn.recv(5000)
-        print(output)
     remote_conn.send("exit\n")
     time.sleep(1)
     remote_conn.send("sh run | i logging\n\n")
     time.sleep(2)
+    output = remote_conn.recv(1000)
     if remote_conn.recv_ready():
         output += remote_conn.recv(10000)
     print(output)
@@ -44,9 +43,9 @@ def main():
     port = 8022    
     remote_conn_pre.connect(ip_address,username=user,password=password,look_for_keys=False,allow_agent=False,port=port)
     remote_conn = remote_conn_pre.invoke_shell()
-    commands = ["show run\n"]
+    commands = ["logging buffered 20010\n"]
     #Collect running config
-    issue_command(remote_conn,commands)
+    send_command(remote_conn,commands)
 
-if __name__ = __main__:
+if __name__ == "__main__":
     main()
