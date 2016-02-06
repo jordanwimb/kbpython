@@ -28,5 +28,5 @@ def main():
     #Collect running config
     get_version(remote_conn)
 
-if __name__ = __main__:
+if __name__ == "__main__":
     main()
