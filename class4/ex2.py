@@ -43,9 +43,10 @@ def main():
     port = 8022    
     remote_conn_pre.connect(ip_address,username=user,password=password,look_for_keys=False,allow_agent=False,port=port)
     remote_conn = remote_conn_pre.invoke_shell()
+
+    #Send commands
     commands = ["logging buffered 20010\n"]
-    #Collect running config
     send_command(remote_conn,commands)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
