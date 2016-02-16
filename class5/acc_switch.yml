@@ -1,12 +1,10 @@
 ---
 - hosts: local
-  vars:
-    hostname: pynet-rtr1
   tasks:
     - name: Generate configuration files
-      template: src=/home/jwimberley/class5/router1.j2
-                  dest=/home/jwimberley/class5/CFGS/{{item.hostname}}.txt
-      with:
+      template: src=/home/jwimberley/kbpython/class5/access_switch.j2
+                  dest=/home/jwimberley/kbpython/class5/CFGS/{{item.hostname}}.txt
+      with_items:
         - {hostname: Access_Switch1, secret: s3cr3t, access_vlan: 10, ip_addr: 10.10.10.5, default_gateway: 10.10.10.1, snmp_community: readonly}
         - {hostname: Access_Switch2, secret: s3cr3t, access_vlan: 10, ip_addr: 10.10.20.5, default_gateway: 10.10.20.1, snmp_community: readonly}
         - {hostname: Access_Switch3, secret: s3cr3t, access_vlan: 10, ip_addr: 10.10.30.5, default_gateway: 10.10.30.1, snmp_community: readonly}
