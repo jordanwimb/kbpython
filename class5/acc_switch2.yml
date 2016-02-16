@@ -1,0 +1,6 @@
+---
+- name: Generate access switch configurations
+  hosts: local
+
+  roles:
+    - switch

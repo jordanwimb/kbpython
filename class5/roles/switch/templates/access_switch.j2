@@ -1,31 +1,31 @@
 service timestamps debug datetime msec localtime show-timezone
 service timestamps log datetime msec localtime show-timezone
 !
-hostname Access_Switch2
+hostname {{item.hostname}}
 !
 logging buffered 32000
 no logging console
-enable secret 0 s3cr3t
+enable secret 0 {{item.secret}}
 !
 !
 !
 !
 interface FastEthernet0/1
- switchport access vlan 10
+ switchport access vlan {{item.access_vlan}}
  switchport mode access
  spanning-tree portfast
 !
 interface FastEthernet0/24
- switchport access vlan 10
+ switchport access vlan {{item.access_vlan}}
  switchport mode access
  spanning-tree portfast
 !
 interface Vlan1
- ip address 172.25.20.5 255.255.255.0
+ ip address {{item.ip_addr}} 255.255.255.0
  no ip route-cache
 !
-ip default-gateway 172.25.20.1
-snmp-server community readonly RO 
+ip default-gateway {{item.default_gateway}}
+snmp-server community {{item.snmp_community}} RO 
 !
 line con 0
 line vty 0 4
