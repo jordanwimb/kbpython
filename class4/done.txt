@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 All exercises complete.
+=======
+Completed.
+>>>>>>> 0d262e44dddd1293cd4a2d44c8c5f86ca0e97eae
