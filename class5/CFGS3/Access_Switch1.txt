@@ -1,0 +1,157 @@
+service timestamps debug datetime msec localtime show-timezone
+service timestamps log datetime msec localtime show-timezone
+!
+hostname Access_Switch1
+!
+logging buffered 32000
+no logging console
+enable secret 0 s3cr3t
+!
+!
+!
+!
+interface Fa0/1
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/2
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/3
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/4
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/5
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/6
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/7
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/8
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/9
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/10
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/11
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/12
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/13
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/14
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/15
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/16
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/17
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/18
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/19
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/20
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/21
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/22
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/23
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+interface Fa0/24
+ switchport access vlan 10                
+ switchport mode access
+ spanning-tree portfast
+!
+!
+interface Vlan1
+ ip address 172.25.10.5 255.255.255.0
+ no ip route-cache
+!
+ip default-gateway 172.25.10.1
+snmp-server community readonly RO 
+!
+!
+access-list 98 remark *** SNMP ***
+access-list 98 permit any
+!
+snmp-server view VIEWSTD iso included
+snmp-server group READONLY v3 priv read VIEWSTD access 98
+snmp-server user pysnmp READONLY v3 auth sha auth_key priv aes 128 encrypt_key
+!
+!
+line con 0
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+end
