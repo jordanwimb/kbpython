@@ -1,0 +1,7 @@
+---
+switch_list:
+  - {hostname: Access_Switch1, secret: s3cr3t, access_vlan: 10, ip_addr: 172.25.10.5, default_gateway: 172.25.10.1, snmp_community: readonly, SNMPv3: True}
+  - {hostname: Access_Switch2, secret: s3cr3t, access_vlan: 10, ip_addr: 172.25.20.5, default_gateway: 172.25.20.1, snmp_community: readonly, SNMPv3: False}
+  - {hostname: Access_Switch3, secret: s3cr3t, access_vlan: 10, ip_addr: 172.25.30.5, default_gateway: 172.25.30.1, snmp_community: readonly, SNMPv3: False}
+  - {hostname: Access_Switch4, secret: s3cr3t, access_vlan: 10, ip_addr: 172.25.40.5, default_gateway: 172.25.40.1, snmp_community: readonly, SNMPv3: True}
+  - {hostname: Access_Switch5, secret: s3cr3t, access_vlan: 10, ip_addr: 172.25.50.5, default_gateway: 172.25.50.1, snmp_community: readonly, SNMPv3: True}
