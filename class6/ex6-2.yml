@@ -1,6 +1,6 @@
 ---
 
-- name: Apply interface description via eAPI 
+- name: Create access interface via eAPI 
   hosts: arista
 
   tasks:
