@@ -1,0 +1,28 @@
+---
+- name: Create VLANs via eAPI 
+  hosts: arista
+
+  tasks:
+    - name: create Athens VLAN
+      eos_vlan: name =ATHENS vlanid =80
+            username ={{ eapi_username }}
+            password ={{ eapi_password }}
+            host ={{ eapi_hostname }}
+            port ={{ eapi_port }}
+            tranport = https
+
+    - name: create Dallas VLAN
+      eos_vlan: name =DALLAS vlanid =81
+            username ={{ eapi_username }}
+            password ={{ eapi_password }}
+            host ={{ eapi_hostname }}
+            port ={{ eapi_port }}
+            tranport = https
+
+    - name: create Tyler VLAN
+      eos_vlan: name =TYLER vlanid =82
+            username ={{ eapi_username }}
+            password ={{ eapi_password }}
+            host ={{ eapi_hostname }}
+            port ={{ eapi_port }}
+            tranport = https
