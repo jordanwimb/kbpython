@@ -5,7 +5,7 @@
 
   tasks:
     - name: Update Interface Description
-      eos_interface: name=Ethernet3 description ""
+      eos_interface: name=Ethernet3 description=""
             username={{ eapi_username }}
             password={{ eapi_password }}
             host={{ eapi_hostname }}
