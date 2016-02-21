@@ -11,3 +11,11 @@
             host={{ eapi_hostname }}
             port={{ eapi_port }}
             transport=https
+
+    - name: Create access port in vlan 80
+      eos_switchport: name=Ethernet3 mode=access access_vlan=80
+            username={{ eapi_username }}
+            password={{ eapi_password }}
+            host={{ eapi_hostname }}
+            port={{ eapi_port }}
+            transport=https
