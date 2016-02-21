@@ -1,0 +1,17 @@
+---
+
+- name: Transfer file to Cisco IOS
+  hosts: pynet-rtr1
+
+  tasks:
+    - name: Transfer file
+      cisco_file_transfer: 
+            source_file="/home/jwimberley/kbpython/class6/test-jw.txt"
+            dest_file="test-jw.txt"
+            overwrite=true
+            enable_scp=true
+            host={{ host }}
+            port={{ port }}
+            username={{ username }}
+            password={{ password }}
+
