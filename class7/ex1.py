@@ -2,9 +2,6 @@
 from __future__ import print_function
 import pyeapi
 
-#interfaces.keys()
-#[u'Management1', u'Ethernet2', u'Ethernet3', u'Ethernet1', u'Ethernet6', u'Ethernet7', u'Ethernet4', u'Ethernet5', u'Vlan1']
-
 def get_show_intf(connection):
     intf = connection.enable("show interfaces")[0]
     interfaces = intf['result']['interfaces']
