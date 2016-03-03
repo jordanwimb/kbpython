@@ -20,10 +20,9 @@ def parse_intf_stats(interfaces):
         print("")
 
 def main():
-    print("This example uses device pynet-sw2.")
-    print("")
+    print("\n***This example uses device pynet-sw2.\n")
     device_name = raw_input("Please enter device name: ")
-    print("Collecting interface statistics...")
+    print("Collecting interface statistics...\n")
     pynet_sw2 = pyeapi.connect_to(device_name)
     parse_intf_stats(get_show_intf(pynet_sw2))
 
