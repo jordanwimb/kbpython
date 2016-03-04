@@ -45,7 +45,6 @@ def main():
     pynet_sw2 = pyeapi.connect_to('pynet-sw2')
     config = get_config(pynet_sw2)
 
-<<<<<<< HEAD
     vlan_status = check_vlan(config,vlan_id)
     if args.remove == False:
         if vlan_status = False:
@@ -54,14 +53,7 @@ def main():
             print("\nVLAN has been created.")
         else:
             print("This VLAN is currently in use.")
-=======
-    print("Checking for VLAN...")
-    status = check_vlan(config,vlan_id)
-    if status == False:
-        print("No VLAN found.")
-        #create_vlan(pynet_sw2,vlan_id, vlan_name)
-        #print("\nVLAN has been created.")
->>>>>>> b3fd22b62cefab69df6c1a6915b0154cf0e42eb8
+
     else:
         if vlan_status = False:
             print("No VLAN found.")
