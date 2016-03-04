@@ -2,6 +2,7 @@
 from __future__ import print_function
 import pyeapi
 import argparse
+import re
 
 
 def get_config(connection):
@@ -27,6 +28,10 @@ def main():
     parser.add_argument("--remove", action="store_true", default=False)
     args = parser.parse_args()
 
+    print(args.name)
+    print(args.vlan)
+    print(args.remove)
+
     vlan_id = args.vlan
     vlan_name = args.name
     pynet_sw2 = pyeapi.connect_to('pynet-sw2')
@@ -34,7 +39,7 @@ def main():
 
     print("Checking for VLAN...")
     status = check_vlan(config,vlan_id)
-    if status = False:
+    if status == False:
         print("No VLAN found.")
         #create_vlan(pynet_sw2,vlan_id, vlan_name)
         #print("\nVLAN has been created.")
