@@ -8,17 +8,17 @@ creds = Credentials.objects.all()
 
 def main():
     for device in devices:
-        if device.device_type == 'cisco':
-            device.device_vendor = 'Cisco'
-            print("Device %s set to %s" % (device.device_name, device.device_vendor))
+        if device.device_type == 'cisco_ios':
+            device.vendor = 'Cisco'
+            print("Device %s set to %s." % (device.device_name, device.vendor))
 
-        elif device.device_type == 'arista':
-            device.device_vendor = 'Arista'
-            print("Device %s set to %s" % (device.device_name, device.device_vendor))
+        elif device.device_type == 'arista_eos':
+            device.vendor = 'Arista'
+            print("Device %s set to %s." % (device.device_name, device.vendor))
 
         else:
-            device.device_vendor = 'Juniper'
-            print("Device %s set to %s" % (device.device_name, device.device_vendor))
+            device.vendor = 'Juniper'
+            print("Device %s set to %s." % (device.device_name, device.vendor))
 
         device.save()
 
