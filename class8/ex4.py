@@ -10,7 +10,7 @@ def main():
     dev_name = raw_input("Enter device to delete or 'q' to quit: ")
     
     while not dev_name == 'q':
-        dev = NetworkDevice.objects.get(dev_name)
+        dev = NetworkDevice.objects.get(device_name=dev_name)
         dev.delete()
         print("%s has been deleted." % dev_name)
 
