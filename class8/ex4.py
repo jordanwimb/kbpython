@@ -7,9 +7,10 @@ devices = NetworkDevice.objects.all()
 creds = Credentials.objects.all()
 
 def main():
+    django.setup()
     dev_name = raw_input("Enter device to delete or 'q' to quit: ")
     
-    while not dev_name == 'q':
+    while dev_name != 'q':
         dev = NetworkDevice.objects.get(device_name=dev_name)
         dev.delete()
         print("%s has been deleted." % dev_name)

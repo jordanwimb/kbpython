@@ -11,6 +11,7 @@ def main():
                             device_type='juniper',
                             ip_address='1.1.1.1',
                             port='9999')
+    router1.save()
 
     router2 = NetworkDevice.objects.get_or_create(device_name='router2',
                             device_type='arista_eos',
